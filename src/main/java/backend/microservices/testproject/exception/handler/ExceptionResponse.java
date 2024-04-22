@@ -1,4 +1,4 @@
-package backend.course.spring.uplasthackathon.exception.handler;
+package backend.microservices.testproject.exception.handler;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

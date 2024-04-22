@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-public interface AuthService {
+public interface UserService {
     AuthenticationResponse login(LoginRequest request);
     String registration(RegistrationRequest request);
     String updateProfilePhoto(MultipartFile multipartFile, User user) throws IOException;

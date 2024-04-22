@@ -11,7 +11,7 @@ import backend.microservices.testproject.exception.NotFoundException;
 import backend.microservices.testproject.exception.UserAlreadyExistException;
 import backend.microservices.testproject.repository.UserRepository;
 import backend.microservices.testproject.security.jwt.JwtService;
-import backend.microservices.testproject.service.AuthService;
+import backend.microservices.testproject.service.UserService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -19,12 +19,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class AuthServiceImpl implements AuthService {
+public class UserServiceImpl implements UserService {
 
     UserRepository userRepository;
     PasswordEncoder passwordEncoder;

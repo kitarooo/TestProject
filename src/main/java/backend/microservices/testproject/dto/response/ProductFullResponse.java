@@ -1,2 +1,15 @@
-package backend.microservices.testproject.dto.response;public class ProductFullResponse {
+package backend.microservices.testproject.dto.response;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProductFullResponse {
+    private String productName;
+    private int quantity;
 }

@@ -20,7 +20,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
-public class AuthController {
+public class UserController {
     private final UserServiceImpl userService;
 
     @PostMapping("/register")
@@ -64,7 +64,7 @@ public class AuthController {
                     @ApiResponse(
                             content = @Content(mediaType = "application/json",
                                     schema = @Schema(implementation = ExceptionResponse.class)),
-                            responseCode = "400", description = "Incorrect Data Exception!"
+                            responseCode = "404", description = "File's empty!"
                     )
             })
     public String updateProfilePhoto(@RequestParam MultipartFile multipartFile, @AuthenticationPrincipal User user) throws IOException {
