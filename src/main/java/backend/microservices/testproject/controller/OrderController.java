@@ -34,7 +34,7 @@ public class OrderController {
     @Operation(summary = "Admin endpoint", description = "Для получения заказа по id!",
             responses = {
                     @ApiResponse(
-                            content = @Content(mediaType = "string"),
+                            content = @Content(mediaType = "application/json"),
                             responseCode = "200", description = "Good"),
                     @ApiResponse(
                             content = @Content(mediaType = "application/json",

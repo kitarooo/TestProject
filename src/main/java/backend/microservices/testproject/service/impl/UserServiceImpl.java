@@ -15,6 +15,8 @@ import backend.microservices.testproject.service.UserService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -45,7 +47,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String registration(RegistrationRequest request) {
+    public ResponseEntity<String> registration(RegistrationRequest request) {
         if (userRepository.findUserByUsername(request.getUsername()).isPresent()) {
             throw new UserAlreadyExistException("Пользователь с username: " + request.getUsername() + " уже существует!");
         }
@@ -63,7 +65,7 @@ public class UserServiceImpl implements UserService {
             throw new IncorrectPasswordsException("Пароли не совпадают!");
         } else {
             userRepository.save(user);
-            return "Регистрация прошла успешно!";
+            return new ResponseEntity<>("Регистрация прошла успешно!", HttpStatus.OK);
         }
     }
 

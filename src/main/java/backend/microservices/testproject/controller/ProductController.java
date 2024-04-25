@@ -36,7 +36,7 @@ public class ProductController {
     @Operation(summary = "User endpoint", description = "Для получения продукта по id!",
             responses = {
                     @ApiResponse(
-                            content = @Content(mediaType = "string"),
+                            content = @Content(mediaType = "application/json"),
                             responseCode = "200", description = "Good"),
                     @ApiResponse(
                             content = @Content(mediaType = "application/json",

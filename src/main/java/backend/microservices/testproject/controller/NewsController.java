@@ -35,7 +35,7 @@ public class NewsController {
     @Operation(summary = "User endpoint", description = "Для получения полной информации и статье с новостью!",
             responses = {
                     @ApiResponse(
-                            content = @Content(mediaType = "string"),
+                            content = @Content(mediaType = "application/json"),
                             responseCode = "200", description = "Good"),
                     @ApiResponse(
                             content = @Content(mediaType = "application/json",

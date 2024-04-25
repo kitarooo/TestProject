@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,7 +29,7 @@ public class UserController {
     @Operation(summary = "Регистрация для клиента", description = "Ендпоинт для регистрации!",
             responses = {
                     @ApiResponse(
-                            content = @Content(mediaType = "string"),
+                            content = @Content(mediaType = "application/json"),
                             responseCode = "200", description = "Good"),
                     @ApiResponse(
                             content = @Content(mediaType = "application/json",
@@ -36,7 +37,7 @@ public class UserController {
                             responseCode = "400", description = "User already exist exception!"
                     )
             })
-    public String registration(@RequestBody RegistrationRequest request) {
+    public ResponseEntity<String> registration(@RequestBody RegistrationRequest request) {
         return userService.registration(request);
     }
 
@@ -44,7 +45,7 @@ public class UserController {
     @Operation(summary = "Авторизация для всех пользователей", description = "Ендпоинт для авторизации и выдачи токена!",
             responses = {
                     @ApiResponse(
-                            content = @Content(mediaType = "string"),
+                            content = @Content(mediaType = "application/json"),
                             responseCode = "200", description = "Good"),
                     @ApiResponse(
                             content = @Content(mediaType = "application/json",
