@@ -5,6 +5,7 @@ import backend.microservices.testproject.dto.response.ProductFullResponse;
 import backend.microservices.testproject.dto.response.ProductResponse;
 import backend.microservices.testproject.exception.handler.ExceptionResponse;
 import backend.microservices.testproject.service.impl.ProductServiceImpl;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -22,12 +23,23 @@ public class ProductController {
     private final ProductServiceImpl productService;
 
     @PostMapping("/add")
-    @Operation(summary = "Admin endpoing", description = "Для добавления продукта!")
+    @Operation(summary = "Admin endpoing", description = "Для добавления продукта!",
+            responses = {
+                    @ApiResponse(
+                            content = @Content(mediaType = "application/json"),
+                            responseCode = "200", description = "Good")
+            })
     public String addProduct(@RequestBody ProductRequest request) {
         return productService.createProduct(request);
     }
 
     @GetMapping("/all")
+    @Operation(summary = "Admin endpoing", description = "Для добавления продукта!",
+            responses = {
+                    @ApiResponse(
+                            content = @Content(mediaType = "application/json"),
+                            responseCode = "200", description = "Good")
+            })
     public List<ProductResponse> getAll() {
         return productService.getAll();
     }

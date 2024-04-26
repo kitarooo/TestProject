@@ -6,7 +6,9 @@ import backend.microservices.testproject.dto.response.AuthenticationResponse;
 import backend.microservices.testproject.entity.User;
 import backend.microservices.testproject.exception.handler.ExceptionResponse;
 import backend.microservices.testproject.service.impl.UserServiceImpl;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -15,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import java.io.IOException;
 
@@ -61,7 +64,7 @@ public class UserController {
     @Operation(summary = "Добавить аватарку", description = "Ендпоинт для добавления аватарки",
             responses = {
                     @ApiResponse(
-                            content = @Content(mediaType = "string"),
+                            content = @Content(mediaType = "application/json"),
                             responseCode = "200", description = "Good"),
                     @ApiResponse(
                             content = @Content(mediaType = "application/json",

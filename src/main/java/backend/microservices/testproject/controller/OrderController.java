@@ -21,11 +21,23 @@ public class OrderController {
     private final OrderServiceImpl orderService;
 
     @PostMapping("/create")
+    @Operation(summary = "Admin endpoing", description = "Для добавления продукта!",
+            responses = {
+                    @ApiResponse(
+                            content = @Content(mediaType = "application/json"),
+                            responseCode = "200", description = "Good")
+            })
     public String createOrder(@RequestBody OrderRequest request) {
         return orderService.createOrder(request);
     }
 
     @GetMapping("/all")
+    @Operation(summary = "Admin endpoing", description = "Для добавления продукта!",
+            responses = {
+                    @ApiResponse(
+                            content = @Content(mediaType = "application/json"),
+                            responseCode = "200", description = "Good")
+            })
     public List<Order> getAll() {
         return orderService.getAll();
     }
