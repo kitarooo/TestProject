@@ -7,7 +7,7 @@ Swagger для чистой документации!
 Dockerfile:
 1) docker build . -t testproject
 2) docker pull postgres
-3) docker run --name test-postgres -e POSTGRES_PASSWORD=TyBaranina01 -e POSTGRES_USER=postgres -e POSTGRES_DB=testDB -d postgres
+3) docker run --name test-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=testDB -d postgres
 4) docker run -d -p 8080:8080 --name testproject --link postgres:postgres postgres
 
 Docker-compose:
