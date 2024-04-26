@@ -1,6 +1,8 @@
 Тестовый проект для подачи на стажировку!
 Тестить ендпоинты строго в Postman!
 
+Файлы с Docker находятся в ветке dev!
+
 Dockerfile:
 1) docker build . -t testproject
 2) docker pull postgres
