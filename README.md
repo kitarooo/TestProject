@@ -1,4 +1,5 @@
 Тестовый проект для подачи на стажировку!
+Тестить ендпоинты строго в Postman!
 
 Dockerfile:
 1) docker build . -t testproject
